@@ -8,6 +8,7 @@ import Book from './Book'
 class SearchBooks extends Component {
     static propTypes = {
         books: PropTypes.array.isRequired,
+        onUpdateBook: PropTypes.func.isRequired
     }
     state = {
         query: ''
@@ -56,7 +57,7 @@ class SearchBooks extends Component {
                             <ol className="books-grid">
                                 {showingBooks.map((books) => (
                                     <li key={books.id}>
-                                        <Book books={ books }/>
+                                        <Book books={ books } onUpdateBook={ this.props.onUpdateBook }/>
                                     </li>
                                 ))}
                             </ol>
